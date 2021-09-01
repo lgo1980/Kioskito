@@ -141,28 +141,19 @@ ventaImportante(cigarrillos(Marcas)):-
 ventaImportante(bebidasAlcoholicas(_)).
 ventaImportante(bebidasNoAlcoholicas(Cantidad)):-Cantidad > 5.
 
-
 :- begin_tests(utneanos).
-
   test(quien_atiende_los_viernes, set(Persona=[dodain,juanFdS,vale])):-
     atiende(Persona,viernes,_,_).
-
   test(personas_que_atienden_un_dia_y_horario_puntual, set(Persona=[dodain,leoC,vale])):-
     quienAtiende(Persona,lunes,14).
-
   test(personas_que_atienden_un_horario_puntual, set(Dia=[lunes,miercoles,viernes])):-
     quienAtiende(vale,Dia,10).
-
   test(personas_que_atienden_solas_en_un_dia_y_horario_puntual, set(Persona=[lucas])):-
     foreverAlone(Persona,martes,19).
-
   test(personas_que_atienden_solas_en_un_dia_y_horario_puntual, fail):-
     foreverAlone(martu,miercoles,22).
-
   test(personas_que_pueden_atender_un_dia_puntual,set(PersonasPosibles=[[],[dodain],[dodain,leoC],[dodain,leoC,martu],[dodain,leoC,martu,vale],[dodain,leoC,vale],[dodain,martu],[dodain,martu,vale],[dodain,vale],[leoC],[leoC,martu],[leoC,martu,vale],[leoC,vale],[martu],[martu,vale],[vale]])):-
     posibilidadesDeAtencion(miercoles,PersonasPosibles).
-
   test(personas_que_son_suertudas_por_cumplir_los_requisitos, set(Persona=[dodain,martu])):-
     vendedorSuertudo(Persona).
-
 :- end_tests(utneanos).
